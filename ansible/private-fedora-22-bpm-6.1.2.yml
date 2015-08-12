@@ -1,0 +1,19 @@
+# This playbox updates a fedora 22 instance and installs EAP 6.4
+
+- name: Update Fedora 22 Instance
+  hosts: os1_private
+  user: fedora
+
+  tasks:
+    - include: tasks/update-fedora.yml
+
+- name: Install EAP 6.4.2 on Fedora 22
+  hosts: os1_private
+  user: fedora
+
+  tasks:
+    - include: tasks/private-install-eap-6.4.yml
+
+
+  # http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/6.1.2.GA-redhat-3/jboss-bpmsuite-6.1.2.GA-redhat-3-deployable-eap6.x.zip
+  # http://download.devel.redhat.com/released/JBEAP-6/6.4.2/jboss-eap-6.4.2-full-build.zip

@@ -1,0 +1,20 @@
+# Installs a workaround for https://github.com/ansible/ansible-modules-extras/issues/471
+# Updates packages via DNF
+
+- name: Install Yum Utilities
+  sudo: true
+  shell: dnf install yum-utils -y
+  args:
+    creates: /usr/bin/repomanage
+
+- name: Update DNF Packages
+  sudo: true
+  dnf: name=* state=latest
+
+- name: Install htop 
+  sudo: true
+  dnf: name=htop state=latest
+
+- name: Install wget 
+  sudo: true
+  dnf: name=wget state=latest

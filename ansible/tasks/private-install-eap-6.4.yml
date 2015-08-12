@@ -1,0 +1,26 @@
+# Installs a EAP 6.4 via Red Hat internal downloads
+
+#- name: Copy EAP 6.4.2 
+#  copy: src=files/jboss-eap-6.4.2-full-build.zip dest=~/jboss-eap-6.4.2-full-build.zip owner=fedora group=fedora
+
+#- name: Install unzip
+#  sudo: true
+#  dnf: name=unzip state=latest
+
+#- name: Extract EAP
+#  unarchive: src=~/jboss-eap-6.4.2-full-build.zip dest=~ copy=no creates=~/jboss-eap-6.4 owner=fedora group=fedora
+
+- name: Copy EAP Standalone Startup Configuration
+  copy: src=files/standalone.conf dest=~/jboss-eap-6.4/bin/standalone.conf owner=fedora group=fedora
+
+- name: Copy EAP Standalone User Configuration
+  copy: src=files/{{ item }} dest=~/jboss-eap-6.4/standalone/configuration/{{ item }} owner=fedora group=fedora
+  with_items:
+  - "application-roles.properties"  
+  - "application-users.properties"  # jboss - bpmsuite1!
+  - "mgmt-groups.properties"
+  - "mgmt-users.properties"
+
+- name: Install JDK 1.8
+  sudo: true
+  dnf: name=java-1.8.0-openjdk-devel state=latest
