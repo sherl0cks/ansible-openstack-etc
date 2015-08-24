@@ -1,14 +1,17 @@
 # Installs a EAP 6.4 via Red Hat internal downloads
 
+- name: Create Download dir
+  file: path=~/downloads state=directory mode=0755 
+
 - name: Copy EAP 6.4.2 
-  copy: src=files/jboss-eap-6.4.2-full-build.zip dest=~/jboss-eap-6.4.2-full-build.zip owner=fedora group=fedora
+  copy: src=files/jboss-eap-6.4.2-full-build.zip dest=~/downloads/jboss-eap-6.4.2-full-build.zip owner=fedora group=fedora
 
 - name: Install unzip
   sudo: true
   dnf: name=unzip state=latest
 
 - name: Extract EAP
-  unarchive: src=~/jboss-eap-6.4.2-full-build.zip dest=~ copy=no creates=~/jboss-eap-6.4 owner=fedora group=fedora
+  unarchive: src=~/downloads/jboss-eap-6.4.2-full-build.zip dest=~ copy=no creates=~/jboss-eap-6.4 owner=fedora group=fedora
 
 - name: Copy EAP standalone.conf
   copy: src=files/standalone.conf dest=~/jboss-eap-6.4/bin/standalone.conf owner=fedora group=fedora

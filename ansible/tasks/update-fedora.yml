@@ -18,3 +18,7 @@
 - name: Install wget 
   sudo: true
   dnf: name=wget state=latest
+
+- name: Install vim 
+  sudo: true
+  dnf: name=vim state=latest

@@ -5,14 +5,15 @@
   user: fedora
 
   tasks:
-    - include: tasks/update-fedora.yml
+#    - include: tasks/update-fedora.yml
 
-- name: Install EAP 6.4.2 on Fedora 22
+- name: Install BPM 6.1.2 on EAP 6.4.2
   hosts: os1_private
   user: fedora
 
   tasks:
-    - include: tasks/private-install-eap-6.4.yml
+#    - include: tasks/private-install-eap-6.4.yml
+    - include: tasks/eap-6.4-configuration.yml
 
 
   # http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/6.1.2.GA-redhat-3/jboss-bpmsuite-6.1.2.GA-redhat-3-deployable-eap6.x.zip
