@@ -5,15 +5,20 @@
   user: fedora
 
   tasks:
-    - include: tasks/update-fedora.yml
+#    - include: tasks/update-fedora.yml
 
-- name: Install and Start EAP 6.4.2
+- name: Install BPM {{bpm_version}} on EAP {{eap_version}}
   hosts: os1_private
   user: fedora
 
+  environment:
+   INVENTORY_HOSTNAME: "{{ inventory_hostname }}"
+
   tasks:
-    - include: tasks/eap-6.4-configuration.yml
+    - include: tasks/private-install-eap.yml
+    - include: tasks/private-install-bpm.yml
+    - include: tasks/eap-configuration.yml
+    - include: tasks/maven-configuration.yml
     - include: tasks/start-eap.yml
 
   # http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/6.1.2.GA-redhat-3/jboss-bpmsuite-6.1.2.GA-redhat-3-deployable-eap6.x.zip
-  # http://download.devel.redhat.com/released/JBEAP-6/6.4.2/jboss-eap-6.4.2-full-build.zip

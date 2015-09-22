@@ -1,0 +1,5 @@
+    - name: create .m2
+      file:  path=/home/fedora/.m2 state=directory mode=0755 owner=fedora group=fedora    
+
+    - name: copy maven settings.xml
+      copy: src=files/settings.xml dest=/home/fedora/.m2/settings.xml owner=fedora group=fedora  

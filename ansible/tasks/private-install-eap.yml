@@ -1,0 +1,18 @@
+# Installs a EAP 6.4 via Red Hat internal downloads
+
+- name: Create Download dir
+  file: path=~/downloads state=directory mode=0755 
+
+- name: Download EAP {{eap_version}}
+  get_url: url=http://download.devel.redhat.com/released/JBEAP-6/{{eap_version}}/jboss-eap-{{eap_version}}-full-build.zip dest=~/downloads
+
+- name: Install unzip
+  sudo: true
+  dnf: name=unzip state=latest
+
+- name: Extract EAP
+  unarchive: src=~/downloads/jboss-eap-{{eap_version}}-full-build.zip dest=~ copy=no creates=~/jboss-eap-6.4 owner=fedora group=fedora
+
+- name: Install JDK 1.8
+  sudo: true
+  dnf: name=java-1.8.0-openjdk-devel state=latest
