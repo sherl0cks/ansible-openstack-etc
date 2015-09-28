@@ -25,7 +25,6 @@
       <extension module="org.jboss.as.weld"/>
       <extension module="org.jboss.as.messaging"/>
    </extensions>
-
    <system-properties>
       <property name="org.kie.example" value="true"/>
       <property name="org.jbpm.designer.perspective" value="full"/>
@@ -36,7 +35,6 @@
       <property name="org.uberfire.nio.git.ssh.host"    value="0.0.0.0"/>
 
    </system-properties>
-
    <management>
       <security-realms>
          <security-realm name="ManagementRealm">

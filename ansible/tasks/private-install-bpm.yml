@@ -1,7 +1,12 @@
 # Installs a BPM via Red Hat internal downloads
 
-- name: Download BPM {{bpm_version}}
-  get_url: url=http://dev138.mw.lab.eng.bos.redhat.com/candidate/bpmsuite-{{bpm_version}}/jboss-bpmsuite-{{bpm_version}}-deployable-eap6.x.zip dest=~/downloads
+- name: Download BPM {{bpm_version}} - Engineering Release
+  get_url: url=http://dev138.mw.lab.eng.bos.redhat.com/candidate/bpmsuite-{{bpm_version}}/jboss-bpmsuite-{{bpm_version}}-deployable-eap6.x.zip dest=~/downloads/bpm.zip
+  when: ER is defined
+
+- name: Download BPM {{bpm_version}} - Stable Release
+  get_url: url=http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/{{bpm_version}}.GA-redhat-2/jboss-bpmsuite-{{bpm_version}}.GA-redhat-2-deployable-eap6.x.zip dest=~/downloads/bpm.zip
+  when: ER is undefined
 
 - name: Install unzip
   sudo: true
@@ -11,8 +16,21 @@
   sudo: true
   dnf: name=git state=latest
 
-- name: Extract BPM
-  unarchive: src=~/downloads/jboss-bpmsuite-{{bpm_version}}-deployable-eap6.x.zip dest=~ copy=no owner=fedora group=fedora
+#- name: Create git hook directory
+#  file:  path=/home/fedora/git-hooks state=directory mode=0755 owner=fedora group=fedora  
 
-#- name: Copy BPM specific standalone.xml
-#  copy: src=files/bpm-{{ bpm_version }}-standalone.xml dest=~/jboss-eap-6.4/standalone/configuration/standalone.xml owner=fedora group=fedora
+#- name: Copy post-commit hook
+#  copy: src=files/post-commit dest=/home/fedora/git-hooks/post-commit owner=fedora group=fedora 
+
+#- name: Copy private key?
+#  copy: src=files/post-commit dest=/home/fedora/git-hooks/post-commit owner=fedora group=fedora
+
+- name: Extract BPM
+  unarchive: src=~/downloads/bpm.zip dest=~ copy=no owner=fedora group=fedora
+
+- name: Copy BPM specific standalone.xml
+  copy: src=files/bpm-{{ bpm_version }}-standalone.xml dest=~/jboss-eap-6.4/standalone/configuration/standalone.xml owner=fedora group=fedora
+
+  
+
+ 

@@ -61,6 +61,7 @@
 						<updatePolicy>never</updatePolicy>
 					</snapshots>
 				</repository>
+
 				<repository>
 					<id>fusesource</id>
 					<url>http://repo.fusesource.com/nexus/content/groups/public/</url>
@@ -102,6 +103,20 @@
 						<enabled>false</enabled>
 					</releases>
 				</repository>
+				<repository>
+					<id>redhat-brew-repository</id>
+					<name>Red Hat Brew</name>
+					<url>http://download.lab.bos.redhat.com/brewroot/repos/jb-bxms-6.2-build/latest/maven</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>yes</enabled>
+						<updatePolicy>yes</updatePolicy>
+					</snapshots>
+				</repository>
 			</repositories>
 
 			<pluginRepositories>
@@ -119,6 +134,21 @@
 						<updatePolicy>never</updatePolicy>
 					</snapshots>
 				</pluginRepository>
+				<pluginRepository>
+					<id>redhat-brew-repository</id>
+					<name>Red Hat Brew</name>
+					<url>http://download.lab.bos.redhat.com/brewroot/repos/jb-bxms-6.2-build/latest/maven</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>yes</enabled>
+						<updatePolicy>yes</updatePolicy>
+					</snapshots>
+				</pluginRepository>
+
 			</pluginRepositories>
 		</profile>
 		<!-- profile | Specifies a set of introductions to the build process, to be activated | using one or more of the mechanisms described above. For inheritance | purposes, and to activate profiles via <activatedProfiles/> or the | command line, 
