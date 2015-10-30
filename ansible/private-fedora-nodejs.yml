@@ -1,0 +1,16 @@
+# This playbox updates a fedora 22 instance and installs EAP 6.4
+
+- name: Update Fedora 22 Instance
+  hosts: os1_private
+  user: fedora
+
+  tasks:
+    - include: tasks/update-fedora.yml
+
+- name: Install NodeJS
+  hosts: os1_private
+  user: fedora
+
+  tasks:
+    - include: tasks/install-nodejs.yml
+

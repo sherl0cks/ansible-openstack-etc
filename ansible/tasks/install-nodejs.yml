@@ -1,0 +1,4 @@
+- name: Install NodeJS
+  sudo: true
+  dnf: name=nodejs state=latest
+
