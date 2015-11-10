@@ -3,14 +3,13 @@
 - name: Update Fedora 22 Instance
   hosts: os1_private
   user: fedora
-  
+
   environment:
      INVENTORY_HOSTNAME: "{{ inventory_hostname }}"
 
   tasks:
   - name: Gdx
     shell: "echo System {{ inventory_hostname }} and sys variable is $INVENTORY_HOSTNAME"
-     
 
 
   # http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/6.1.2.GA-redhat-3/jboss-bpmsuite-6.1.2.GA-redhat-3-deployable-eap6.x.zip

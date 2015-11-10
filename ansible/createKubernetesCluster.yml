@@ -1,0 +1,29 @@
+---
+- hosts: 127.0.0.1
+  remote_user: root
+  connection: local
+
+  vars_prompt:
+    - name: "os1_password"
+      prompt: "OS1 password?"
+      private: yes  
+
+  tasks:   
+    - include: tasks/kube-cluster-master.yml
+    - include: tasks/kube-cluster-nodes.yml
+
+- hosts: masters:nodes
+  remote_user: fedora
+  become: yes
+
+  tasks:
+    - name: Bootstrap
+      shell: sudo dnf install python-dnf -y
+
+    - name: Install packages
+      sudo: true 
+      dnf: name={{ item }} state=latest
+      with_items:
+      - ansible
+      - git
+      - python-netaddr

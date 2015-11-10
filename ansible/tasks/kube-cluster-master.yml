@@ -1,0 +1,25 @@
+  - name: Create the OS1 instance the kube master
+    nova_compute:
+      name: "jholmes-kube-master-{{ ansible_date_time.date }}--{{ ansible_date_time.time }}"
+      state: present
+      key_name: jholmes
+      login_username: jholmes
+      login_password: "{{ os1_password }}"
+      login_tenant_name: "Consulting Middleware Delivery"
+      auth_url: http://control.os1.phx2.redhat.com:5000/v2.0
+      region_name: OS1Internal
+      image_id: 0fe0dca2-2fb6-4260-a220-ff409de4b054 # fedora 22
+      security_groups: bpms-group
+      flavor_id: t2.medium
+    register: openstack_instance_master
+
+  - name: Include new host into Ansible inventory
+    add_host: name={{ item }} groups=masters,etcd
+    with_items:
+      - "{{ openstack_instance_master.public_ip }}"
+
+  - name: Wait for SSH to be ready
+    wait_for: port=22 host={{ item }} timeout=600
+    with_items:
+      - "{{ openstack_instance_master.public_ip }}"
+
