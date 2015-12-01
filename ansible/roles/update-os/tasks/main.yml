@@ -1,0 +1,23 @@
+---
+# TODO - conditionals based on OS and version
+- name: Bootstrap Fedora 23
+  raw: dnf -y install python python-dnf
+
+- name: Install Basic Packages 
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - git
+    - htop
+    - vim
+    - docker
+
+- name: Update All Packages
+  dnf: name=* state=latest 
+
+- name: Enable and Start Docker
+  service: 
+    name: docker
+    enabled: true
+    state: started      

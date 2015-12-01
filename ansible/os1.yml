@@ -1,0 +1,34 @@
+---
+# This playbook deploys a kubernetes cluster 
+# with the default addons.
+
+- hosts: 127.0.0.1
+  remote_user: root
+  connection: local
+  roles:
+    - new-os1-instance
+  tags:
+    - new-os1-instance
+
+  vars_prompt:
+    - name: "instance_name"
+      prompt: "instance name?"
+      private: no
+    - name: "instance_flavor"
+      prompt: "instance flavor (medium or large)?"
+      private: no  
+    - name: "openstack_env"
+      prompt: "os1 public or private?"
+      private: no
+    - name: "os1_password"
+      prompt: "OS1 password?"
+      private: yes            
+
+- hosts: openstack_instances
+  remote_user: fedora
+  sudo: true
+  gather_facts: false
+  roles:
+    - update-os
+  tags:
+    - update-os  
