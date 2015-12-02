@@ -1,0 +1,9 @@
+---
+# Installs OpenJDK
+# Corresponds to docker layer: https://github.com/jboss-dockerfiles/base-jdk
+
+- name: Install OpenJDK
+  sudo: true
+  dnf:
+    name: "{{ 'java-' + java_version + '.0-openjdk-devel' }}"
+    state: latest

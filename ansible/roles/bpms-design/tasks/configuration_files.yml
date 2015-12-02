@@ -1,0 +1,22 @@
+---
+- name: Copy Default BPM Suite Application User/Role Configuration Files
+  sudo: true
+  copy:
+    src: "{{ item }}"
+    dest: "{{ eap_standalone_configuration_dir }}"
+    owner: fedora
+    group: fedora
+    mode: "755"
+  with_items:
+    - application-users.properties
+    - application-roles.properties
+
+# TODO
+#- name: Create git hook directory
+#  file:  path=/home/fedora/git-hooks state=directory mode=0755 owner=fedora group=fedora  
+
+#- name: Copy post-commit hook
+#  copy: src=files/post-commit dest=/home/fedora/git-hooks/post-commit owner=fedora group=fedora 
+
+#- name: Copy private key?
+#  copy: src=files/post-commit dest=/home/fedora/git-hooks/post-commit owner=fedora group=fedora      

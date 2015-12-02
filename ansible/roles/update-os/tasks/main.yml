@@ -12,6 +12,8 @@
     - htop
     - vim
     - docker
+    - unzip
+    - libselinux-python
 
 - name: Update All Packages
   dnf: name=* state=latest 

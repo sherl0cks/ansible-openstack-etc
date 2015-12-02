@@ -1,0 +1,10 @@
+---
+# Installs a BPM Suite via Red Hat internal downloads
+# Update these to reflect your organizations artifact repos
+
+bpms_artifact_repo: http://download.eng.bos.redhat.com/brewroot/repos/jb-ip-6.1-build/latest/maven/org/jboss/ip/jboss-bpmsuite/
+bpms_artifact_version: 6.2.0.GA-redhat-1
+bpms_artifact_name: jboss-bpmsuite-6.2.0.GA-redhat-1-deployable-eap6.x.zip
+
+bpms_expose_git_daemon: true
+bpms_expose_ssh_daemon: true

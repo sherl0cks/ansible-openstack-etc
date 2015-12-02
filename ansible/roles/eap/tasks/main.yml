@@ -1,0 +1,44 @@
+---
+# Installs a EAP 
+# Corresponds to docker layer: https://github.com/sherl0cks/docker-eap
+
+- name: Set EAP Artifact Facts
+  set_fact:
+    eap_artifact_url: "{{ eap_artifact_repo + '/' + eap_artifact_version + '/' + eap_artifact_name }}"
+    eap_artifact_dl_dest: "{{ '/tmp/' + eap_artifact_name }}"
+
+- name: Debug EAP Artifact URL
+  debug:
+    msg: "{{ eap_artifact_url }}"
+
+- name: Debug EAP Download Destination
+  debug:
+    msg: "{{ eap_artifact_dl_dest }}"
+
+- name: Download EAP Artifact 
+  get_url:
+    url: "{{ eap_artifact_url }}"
+    dest: "{{ eap_artifact_dl_dest }}"
+
+- name: Create JBoss Home Directory
+  sudo: true
+  file:
+    path: "{{ eap_library_dest }}"
+    owner: fedora
+    group: fedora
+    state: directory
+    mode: "755"
+
+- name: Extract EAP Libraries
+  sudo: true
+  unarchive: 
+    src: "{{ eap_artifact_dl_dest }}"
+    dest: "{{ eap_library_dest }}"
+    creates: jboss-eap-6.4
+    copy: no
+    owner: fedora
+    group: fedora
+
+- include: java_opts.yml
+
+- include: configuration_files.yml

@@ -1,0 +1,23 @@
+---
+# https://access.redhat.com/solutions/34626
+- name: Change Default Random Number Generator
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS  -Djava.security.egd=file:/dev/./urandom"
+   
+- name: Expose Git Daemon
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.daemon.host=0.0.0.0" 
+  when: bpms_expose_git_daemon      
+
+- name: Expose SSH Daemon
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.ssh.host=0.0.0.0" 
+  when: bpms_expose_ssh_daemon 
+
+# TODO - get overwrite working for heap size
+
+#    -Dkie.maven.settings.custom=/opt/jboss/.m2/settings.xml \ 
+#     \

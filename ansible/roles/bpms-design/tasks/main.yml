@@ -1,0 +1,34 @@
+---
+# Installs a BPM
+# Corresponds to docker layer https://github.com/sherl0cks/docker-bpms
+
+- name: Set BPM Suite Artifact Facts
+  set_fact:
+    bpms_artifact_url: "{{ bpms_artifact_repo + bpms_artifact_version + '/jboss-bpmsuite-' + bpms_artifact_version + '-deployable-eap6.x.zip' }}"
+    bpms_artifact_dl_dest: "{{ '/tmp/' + bpms_artifact_name }}"
+
+- name: Debug BPM Suite Artifact URL
+  debug:
+    msg: "{{ bpms_artifact_url }}"
+
+- name: Debug BPM Suite Artifact Download Destination
+  debug:
+    msg: "{{ bpms_artifact_dl_dest }}"    
+
+- name: Download BPM Suite Artifact 
+  get_url:
+    url: "{{ bpms_artifact_url }}"
+    dest: "{{ bpms_artifact_dl_dest }}"
+
+# This should overlay the BPM download over EAP, intentionally overwriting some files in the process        
+- name: Extract BPM Suite
+  unarchive: 
+    src: "{{ bpms_artifact_dl_dest }}"
+    dest: "{{ eap_library_dest }}"
+    copy: no
+    owner: fedora
+    group: fedora
+
+- include: java_opts.yml
+
+- include: configuration_files.yml

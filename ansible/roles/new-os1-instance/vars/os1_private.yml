@@ -6,6 +6,7 @@ os1_auth_url: http://control.os1.phx2.redhat.com:5000/v2.0
 os1_image_id: 2695dbd9-e1b1-47a8-9ac3-4e8854aa55aa #fedora 23 cloud
 os1_security_group: bpms-group
 os1_flavor_id: c3.xlarge
+# c3.xlarge 
 
 # User specific vars defined below should be added to user-vars.yml file
 os1_user: jholmes
