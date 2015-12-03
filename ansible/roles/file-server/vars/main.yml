@@ -1,0 +1,5 @@
+---
+# Installs a BPM Suite via Red Hat internal downloads
+# Update these to reflect your organizations artifact repos
+
+httpd_document_root: /var/www/html

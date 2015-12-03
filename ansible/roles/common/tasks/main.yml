@@ -1,7 +1,7 @@
 ---
 # TODO - conditionals based on OS and version
 - name: Bootstrap Fedora 23
-  raw: dnf -y install python python-dnf
+  raw: dnf -y install python python-dnf libselinux-python
 
 - name: Install Basic Packages 
   dnf:
@@ -13,7 +13,6 @@
     - vim
     - docker
     - unzip
-    - libselinux-python
 
 - name: Update All Packages
   dnf: name=* state=latest 

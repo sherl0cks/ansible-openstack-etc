@@ -2,10 +2,17 @@
 # Installs a BPM
 # Corresponds to docker layer https://github.com/sherl0cks/docker-bpms
 
-- name: Set BPM Suite Artifact Facts
+#- name: Set BPM Suite Artifact Facts - Private OS1
+#  set_fact:
+#    bpms_artifact_url: "{{ bpms_artifact_repo + bpms_artifact_version + '/jboss-bpmsuite-' + bpms_artifact_version + '-deployable-eap6.x.zip' }}"
+#    bpms_artifact_dl_dest: "{{ '/tmp/' + bpms_artifact_name }}"
+#  when: openstack_env == "private"
+
+- name: Set EAP Artifact Facts - Public OS1
   set_fact:
-    bpms_artifact_url: "{{ bpms_artifact_repo + bpms_artifact_version + '/jboss-bpmsuite-' + bpms_artifact_version + '-deployable-eap6.x.zip' }}"
-    bpms_artifact_dl_dest: "{{ '/tmp/' + bpms_artifact_name }}"
+    eap_artifact_url: "https://drive.google.com/uc?export=download&id=0B721NebxxmrsNzctTjlxRjBMaUk"
+    eap_artifact_dl_dest: "{{ '/tmp/' + bpms_artifact_name }}"
+#  when: openstack_env == "public"
 
 - name: Debug BPM Suite Artifact URL
   debug:

@@ -5,14 +5,21 @@ os1_auth_url: http://control.os1.phx2.redhat.com:5000/v2.0
 # Image info
 os1_image_id: 2695dbd9-e1b1-47a8-9ac3-4e8854aa55aa #fedora 23 cloud
 os1_security_group: bpms-group
-os1_flavor_id: c3.xlarge
-# c3.xlarge 
 
 # User specific vars defined below should be added to user-vars.yml file
 os1_user: jholmes
 os1_tenant_name: "Consulting Middleware Delivery"
 os1_key_name: jholmes
 os1_region_name: OS1Internal
+
+### OS1 Private Flavor IDs
+
+### t2.micro 1 CPU 1 GB RAM
+os1_small_flavor_id: t2.micro
+### m1.medium 2 CPU 4 GB RAM
+os1_medium_flavor_id: 83098b08-7339-4089-bc07-3f2a14b7a4c1
+### m1.large 4 cpu 8 GB RAM
+os1_large_flavor_id: 900e71fc-70cb-4913-8650-975c89c69ec9
 
 #rhn_user:
 #rhn_password:

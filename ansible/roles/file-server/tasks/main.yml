@@ -1,0 +1,23 @@
+---
+- name: Install httpd
+  dnf:
+    name: httpd
+    state: latest
+
+- name: Copy Product Files
+  sudo: true
+  copy:
+    src: "{{ item }}"
+    dest: "{{ httpd_document_root }}"
+    owner: root
+    group: root
+    mode: "644"
+  with_items:
+    - jboss-eap-6.4.5-full-build.zip
+    - jboss-bpmsuite-6.2.0.GA-redhat-1-deployable-eap6.x.zip
+
+- name: Start and Enable httpd Service
+  service:
+    name: httpd
+    state: started
+    enabled: true

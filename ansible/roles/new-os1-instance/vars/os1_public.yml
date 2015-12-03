@@ -1,17 +1,26 @@
 ---
-#OS1 Public
+### OS1 Public
 os1_auth_url: http://os1-public.osop.rhcloud.com:5000/v2.0
 
-# Image info
+### Image info
 os1_image_id: 34d39f49-8d93-4f92-a9c2-d3549e8d6946 #fedora 23 cloud
 os1_security_group: bpms-group,default,docker-publish-ports
 
-# User specific vars defined below should be added to user-vars.yml file
+### User specific vars defined below should be added to user-vars.yml file
 os1_user: jholmes
 os1_tenant_name: "Consulting Middleware Delivery"
 os1_key_name: jholmes
 os1_region_name: OS1Public
 os1_ip_pools: [ os1_public ]
+
+### OS1 Public Flavor IDs
+
+### t2.micro 1 CPU 1 GB RAM
+os1_small_flavor_id: t2.micro
+### m1.medium 2 CPU 4 GB RAM
+os1_medium_flavor_id: 11f7d668-2fed-44b4-bfdc-772dbca9f585
+### m1.large 4 cpu 8 GB RAM
+os1_large_flavor_id: 7fa31c45-c37a-4b8f-9243-9286af11b273
 
 #rhn_user:
 #rhn_password:

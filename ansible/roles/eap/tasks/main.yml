@@ -2,10 +2,17 @@
 # Installs a EAP 
 # Corresponds to docker layer: https://github.com/sherl0cks/docker-eap
 
-- name: Set EAP Artifact Facts
+#- name: Set EAP Artifact Facts - Private OS1
+#  set_fact:
+#    eap_artifact_url: "{{ eap_artifact_repo + '/' + eap_artifact_version + '/' + eap_artifact_name }}"
+#    eap_artifact_dl_dest: "{{ '/tmp/' + eap_artifact_name }}"
+#  when: openstack_env == "private"  
+
+- name: Set EAP Artifact Facts - Public OS1
   set_fact:
-    eap_artifact_url: "{{ eap_artifact_repo + '/' + eap_artifact_version + '/' + eap_artifact_name }}"
+    eap_artifact_url: "https://drive.google.com/uc?export=download&id=0B721NebxxmrsSnRRZ2ktTV9zc0k"
     eap_artifact_dl_dest: "{{ '/tmp/' + eap_artifact_name }}"
+  
 
 - name: Debug EAP Artifact URL
   debug:

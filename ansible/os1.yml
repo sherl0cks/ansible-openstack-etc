@@ -16,7 +16,7 @@
       default: bpms-design
 
     - name: "instance_flavor"
-      prompt: "instance flavor (medium or large)?"
+      prompt: "instance flavor (small, medium or large)?"
       private: no
       default: medium
 
@@ -30,18 +30,31 @@
       private: yes
       default: fakePassword            
 
+#####################################################################################################################
+#  Necessary at the playbook level (not a dependency) because host might not be bootstrapped and can't gather facts.
+#  Gather Fact false can only be set at the playbook level
+#####################################################################################################################
+
 - hosts: openstack_instances
   remote_user: fedora
   sudo: true
   gather_facts: false
   roles:
-    - update-os
+    - common
   tags:
-    - update-os
+    - common
 
 - hosts: openstack_instances
   remote_user: fedora
   roles:
-    - bpms-design
+    - { role: bpms-design, when: instance_name == 'bpms-design' }
   tags:
-    - bpms-design      
+    - bpms-design
+
+- hosts: openstack_instances
+  remote_user: fedora
+  sudo: true
+  roles:
+    - { role: file-server, when: instance_name == 'file-server' }
+  tags:
+    - file-server       

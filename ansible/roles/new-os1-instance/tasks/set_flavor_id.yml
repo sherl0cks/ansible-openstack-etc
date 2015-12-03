@@ -1,0 +1,16 @@
+---
+- name: Set Small Flavor ID Fact
+  set_fact:
+    os1_flavor_id: "{{ os1_small_flavor_id }}"
+  when: instance_flavor == 'small'
+  
+- name: Set Medium Flavor ID Fact
+  set_fact:
+    os1_flavor_id: "{{ os1_medium_flavor_id }}"
+  when: instance_flavor == 'medium'
+
+- name: Set Large Flavor ID Fact
+  set_fact:
+    os1_flavor_id: "{{ os1_large_flavor_id }}"
+  when: instance_flavor == 'large'     
+ 
