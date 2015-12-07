@@ -31,6 +31,15 @@ Read [Ansible's description](http://www.ansible.com/how-ansible-works) on their 
 
 The decision to use Ansible for this course pre-dates [Red Hat's acquisition of Ansible](https://www.redhat.com/en/about/blog/why-red-hat-acquired-ansible), but it has the convenitent side effect of extending supportable options for students to use the material directly on customer engagements.
 
+## Virtual Machines
+
+
+| Student        	| VM1           	| VM2  			|
+| -------------  	|:-------------:	| -----:		|
+| Rahman      		| 10.3.9.164 		|  10.3.10.205	|
+| Olu      			| 			     	|    |
+| Morgan 			| 10.3.10.218     	|  10.3.10.247 |
+
 
 ## Schedule
 
