@@ -33,15 +33,37 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 
 ## Virtual Machines
 
+### Red Hat
+| Student        	| VM1           	| VM2  				|
+| -------------  	|:-------------:	| :-----:			|
+| Rahman      		| 10.3.9.164 		|  10.3.10.205		|
+| Olu      			| 10.3.12.169	   	|  10.3.12.206  	|
+| Morgan 			| 10.3.10.218     	|  10.3.10.247 		|
 
-| Student        	| VM1           	| VM2  			|
-| -------------  	|:-------------:	| :-----:		|
-| Rahman      		| 10.3.9.164 		|  10.3.10.205	|
-| Olu      			| 			     	|    |
-| Morgan 			| 10.3.10.218     	|  10.3.10.247 |
+Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
 
+### TCS
+| Student        	| VM1           	| VM2  				|
+| -------------  	|:-------------:	| :-----:			|
+| Stefan 			| 209.132.178.252   |  209.132.179.137 	|
+| Frank 			| 209.132.179.138   |  209.132.179.139 	|
+| Joe	 			| 209.132.179.142   |  209.132.179.144 	|
+| Olivier 			| 209.132.179.145   |  209.132.179.146 	|
+| Wes 				| 209.132.179.147   |  209.132.179.148 	|
 
-Everyone is on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
+TCS is on a Centos 7.1 machine which can be access using `ssh centos@< ip >`. The `centos` has passwordless sudo priveleges. We have a network issue at the moment preventing the use of RHEL, but the important bits are the same
+
+Additionally, please ensure the following ports are open on all hosts.
+
+| Port          	|  Purpose   	|
+| -------------  	|:-----:		|
+| 22	 			| ssh           |
+| 80	 			| http          |
+| 443	 			| https			|
+| 8080	 			| EAP http 		|     
+| 9990 		  		| EAP admin  	|
+| 9418				| git daemon	|
+| 8001				| ssh daemon	|
 
 ## Schedule
 
