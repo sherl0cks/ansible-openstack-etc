@@ -35,7 +35,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 
 
 | Student        	| VM1           	| VM2  			|
-| -------------  	|:-------------:	| -----:		|
+| -------------  	|:-------------:	| :-----:		|
 | Rahman      		| 10.3.9.164 		|  10.3.10.205	|
 | Olu      			| 			     	|    |
 | Morgan 			| 10.3.10.218     	|  10.3.10.247 |
