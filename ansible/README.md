@@ -11,7 +11,7 @@ Is to cover activities that Foundational and Experienced practioners of Red Hat 
 - Non-clustered local install of Business Central and Kie-Server using EAP
 - Configuration of new users with properties files
 
-These activities are covered by the (Red Hat BPM Suite Getting Started Guide)[https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.1/html/Getting_Started_Guide/chap-Installation_options.html] - this course will not provide additional material on these subjects. You're instructor will provide information on how to download the product via email.
+These activities are covered by the [Red Hat BPM Suite Getting Started Guide](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.1/html/Getting_Started_Guide/chap-Installation_options.html). This course will not provide additional material on these subjects. You're instructor will provide information on how to download the product via email.
 
 
 ### Experienced
