@@ -41,6 +41,8 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 | Morgan 			| 10.3.10.218     	|  10.3.10.247 |
 
 
+Everyone is on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
+
 ## Schedule
 
 ### Day 1
