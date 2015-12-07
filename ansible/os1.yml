@@ -1,25 +1,17 @@
 ---
-# This playbook deploys a kubernetes cluster 
-# with the default addons.
+#####################################################################################################################
+#  Use OS1 Public or Private to create a new host
+#####################################################################################################################
+
 - hosts: 127.0.0.1
   remote_user: root
   connection: local
   roles:
     - new-os1-instance
   tags:
-    - new-os1-instance
+    - new-os1-instance  
 
   vars_prompt:
-    - name: "instance_name"
-      prompt: "instance name?"
-      private: no
-      default: bpms-design
-
-    - name: "instance_flavor"
-      prompt: "instance flavor (small, medium or large)?"
-      private: no
-      default: medium
-
     - name: "openstack_env"
       prompt: "os1 public or private?"
       private: no
@@ -28,7 +20,7 @@
     - name: "os1_password"
       prompt: "OS1 password?"
       private: yes
-      default: fakePassword            
+      default: fakePassword           
 
 #####################################################################################################################
 #  Necessary at the playbook level (not a dependency) because host might not be bootstrapped and can't gather facts.

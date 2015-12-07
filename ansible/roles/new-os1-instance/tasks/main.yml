@@ -3,40 +3,9 @@
 
 - include: set_flavor_id.yml
 
-- name: Create new private OS1 instance
-  nova_compute:
-    name: "{{ os1_user }}-{{ instance_name }}-{{ ansible_date_time.date }}--{{ ansible_date_time.time }}"
-    state: present
-    key_name: "{{ os1_key_name }}"
-    login_username: "{{ os1_user }}"
-    login_password: "{{ os1_password }}"
-    login_tenant_name: "{{ os1_tenant_name }}"
-    auth_url: "{{ os1_auth_url }}"
-    region_name: "{{ os1_region_name }}"
-    image_id: "{{ os1_image_id }}"
-    security_groups: "{{ os1_security_group }}"
-    flavor_id: "{{ os1_flavor_id }}"
-  register: openstack_instance
-  when: openstack_env == 'private'
+- include: "{{ openstack_env + '.yml' }}"
 
-- name: Create new public OS1 instance
-  nova_compute:
-    name: "{{ os1_user }}-{{ instance_name }}-{{ ansible_date_time.date }}--{{ ansible_date_time.time }}"
-    state: present
-    key_name: "{{ os1_key_name }}"
-    login_username: "{{ os1_user }}"
-    login_password: "{{ os1_password }}"
-    login_tenant_name: "{{ os1_tenant_name }}"
-    auth_url: "{{ os1_auth_url }}"
-    region_name: "{{ os1_region_name }}"
-    image_id: "{{ os1_image_id }}"
-    security_groups: "{{ os1_security_group }}"
-    flavor_id: "{{ os1_flavor_id }}"
-    floating_ip_pools: "{{ os1_ip_pools }}"
-  register: openstack_instance
-  when: openstack_env == 'public'
-
-- name: Include new host into Ansible inventory
+- name: Add new host into Ansible inventory
   add_host: 
     name: "{{ openstack_instance.public_ip }}"  
     groups: openstack_instances

@@ -2,9 +2,8 @@
 # Installs a BPM Suite via Red Hat internal downloads
 # Update these to reflect your organizations artifact repos
 
-eap_artifact_repo: http://download.eng.rdu2.redhat.com/released/JBEAP-6
-eap_artifact_version: 6.4.4
-eap_artifact_name: jboss-eap-6.4.4-full-build.zip
+eap_artifact_repo: http://209.132.178.214
+eap_artifact_name: jboss-eap-6.4.5-full-build.zip
 
 eap_library_dest: /opt/jboss
 
