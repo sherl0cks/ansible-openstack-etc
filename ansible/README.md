@@ -34,7 +34,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 ## Virtual Machines
 
 ### Red Hat
-| Student        	| VM1           	| VM2  				|
+| Student        	| Design           	| Execute  				|
 | -------------  	|:-------------:	| :-----:			|
 | Rahman      		| 10.3.9.164 		|  10.3.10.205		|
 | Olu      			| 10.3.12.169	   	|  10.3.12.206  	|
@@ -43,7 +43,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
 
 ### TCS
-| Student        	| VM1           	| VM2  				|
+| Student        	| Design           	| Execute  				|
 | -------------  	|:-------------:	| :-----:			|
 | Stefan 			| 209.132.178.252   |  209.132.179.137 	|
 | Frank 			| 209.132.179.138   |  209.132.179.139 	|
@@ -65,6 +65,15 @@ Additionally, please ensure the following ports are open on all hosts.
 | 9418				| git daemon	|
 | 8001				| ssh daemon	|
 
+
+### Perficient
+| Student        	| Design           	| Execute  			|
+| -------------  	|:-------------:	| :-----:			|
+| Raj    			| 209.132.179.149   |  209.132.179.32 	|
+| Rohan 			| 209.132.179.96    |  209.132.179.97 	|
+
+Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip >`. The `centos` has passwordless sudo priveleges. We have a network issue at the moment preventing the use of RHEL, but the important bits are the same
+
 ## Schedule
 
 ### Day 1
@@ -75,4 +84,11 @@ Additionally, please ensure the following ports are open on all hosts.
 - Watch the [Quick Start Video - Introduction to Ansible Core](http://www.ansible.com/videos) video
 - [Download and install Ansible](http://docs.ansible.com/ansible/intro_installation.html)
 
+### Day 2
 
+- Read through java, eap and bpms-design roles. On your first pass, only read the `- name: ` tags. These are not required by Ansible, but serve as extremely valuable documentation.
+- Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
+- Run the ansible playbook `ansible-playbook bpms-design.yml` and follow the output. Notice how the output prints the `- name` tags as it progresses. Imagine how you could use this output to create documentation for a customer if required.
+- ssh out to your bpms-design server and explore. 
+- find the jboss-as logs and read through them
+- reread the java, eap and bpms-design roles. This time focus on the variables and configuration for each command

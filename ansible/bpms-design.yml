@@ -1,0 +1,7 @@
+- hosts: bpms-design
+  remote_user: "{{ distro_cloud_user }}"
+  sudo: true
+  roles:
+    - bpms-design
+  tags:
+    - bpms-design
