@@ -78,17 +78,19 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 
 ### Day 1
 
-- Download the product
-- Complete the Getting Started Guide linked in the Foundational section above
-- Ensure SSH connectivity to your lab environment
-- Watch the [Quick Start Video - Introduction to Ansible Core](http://www.ansible.com/videos) video
-- [Download and install Ansible](http://docs.ansible.com/ansible/intro_installation.html)
+1. Download the product
+2. Complete the Getting Started Guide linked in the Foundational section above
+3. Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
+4. Ensure SSH connectivity to your lab environment. `ansible all -m ping -user cloud-user` for RHEL and `ansible all -m ping -user centos` CentOS.
+5. Watch the [Quick Start Video - Introduction to Ansible Core](http://www.ansible.com/videos) video
+6. [Download and install Ansible](http://docs.ansible.com/ansible/intro_installation.html)
 
 ### Day 2
 
-- Read through java, eap and bpms-design roles. On your first pass, only read the `- name: ` tags. These are not required by Ansible, but serve as extremely valuable documentation.
-- Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
-- Run the ansible playbook `ansible-playbook bpms-design.yml` and follow the output. Notice how the output prints the `- name` tags as it progresses. Imagine how you could use this output to create documentation for a customer if required.
-- ssh out to your bpms-design server and explore. 
-- find the jboss-as logs and read through them
-- reread the java, eap and bpms-design roles. This time focus on the variables and configuration for each command
+1. Read through java, eap and bpms-design roles. On your first pass, only read the `- name: ` tags. These are not required by Ansible, but serve as extremely valuable documentation.
+2. Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
+3. Run the ansible playbook `ansible-playbook bpms-design.yml` and follow the output. Notice how the output prints the `- name` tags as it progresses. Imagine how you could use this output to create documentation for a customer if required.
+4. Check that the install worked by logging in to the app, which will be <your ip>:8080/business-central. User: jboss, pass: bpmsuite1!
+5. ssh out to your bpms-design server and explore. 
+6. find the jboss-as logs and read through them
+7. reread the java, eap and bpms-design roles. This time focus on the variables and configuration for each command
