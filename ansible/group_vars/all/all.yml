@@ -1,13 +1,8 @@
 ---
 instance_name: bpms-design
 
-instance_flavor: large
-#    - name: "instance_name"
-#      prompt: "instance name?"
-#      private: no
-#      default: bpms-design
+instance_flavor: medium
 
-#    - name: "instance_flavor"
-#      prompt: "instance flavor (small, medium or large)?"
-#      private: no
-#      default: medium
+os1_distro_variant: rhel
+
+distro_cloud_user: "cloud-user"

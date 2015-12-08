@@ -20,7 +20,7 @@
     - name: "os1_password"
       prompt: "OS1 password?"
       private: yes
-      default: fakePassword           
+      default: fakePassword
 
 #####################################################################################################################
 #  Necessary at the playbook level (not a dependency) because host might not be bootstrapped and can't gather facts.
@@ -28,25 +28,46 @@
 #####################################################################################################################
 
 - hosts: openstack_instances
-  remote_user: fedora
+  remote_user: "{{ distro_cloud_user }}"
   sudo: true
   gather_facts: false
   roles:
-    - common
+    - { role: fedora, when: os1_distro_variant == 'fedora' }
   tags:
-    - common
+    - fedora
+
 
 - hosts: openstack_instances
-  remote_user: fedora
+  remote_user: "{{ distro_cloud_user }}"
+  sudo: true
+  gather_facts: false
+  roles:
+    - { role: rhel, when: os1_distro_variant == 'rhel' }
+  tags:
+    - rhel
+
+  vars_prompt:
+    - name: "rhn_password"
+      prompt: "RHN password?"
+      private: yes
+      default: fakePassword
+
+
+- hosts: openstack_instances
+  remote_user: "{{ distro_cloud_user }}"
+  sudo: true
+  gather_facts: false
   roles:
     - { role: bpms-design, when: instance_name == 'bpms-design' }
   tags:
     - bpms-design
 
+
 - hosts: openstack_instances
-  remote_user: fedora
+  remote_user: "{{ distro_cloud_user }}"
+  gather_facts: false
   sudo: true
   roles:
     - { role: file-server, when: instance_name == 'file-server' }
   tags:
-    - file-server       
+    - file-server

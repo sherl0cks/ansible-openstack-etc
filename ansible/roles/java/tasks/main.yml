@@ -1,9 +1,16 @@
 ---
 # Installs OpenJDK
 # Corresponds to docker layer: https://github.com/jboss-dockerfiles/base-jdk
-
-- name: Install OpenJDK
+- name: Install OpenJDK - yum
+  sudo: true
+  yum:
+    name: "{{ 'java-' + java_version + '.0-openjdk-devel' }}"
+    state: latest
+  when: os1_distro_variant == 'rhel'
+  
+- name: Install OpenJDK - dnf
   sudo: true
   dnf:
     name: "{{ 'java-' + java_version + '.0-openjdk-devel' }}"
     state: latest
+  when: os1_distro_variant == 'fedora'  

@@ -15,6 +15,22 @@
   debug:
     msg: "{{ eap_artifact_dl_dest }}"
 
+- name: Create JBoss Group
+  group:
+    name: "{{ jboss_group }}"
+    system: yes
+    state: present
+    gid: "400"
+
+- name: Create JBoss User
+  user:
+    name: "{{ jboss_user }}"
+    comment: "JBoss user"
+    uid: "400"
+    group: "{{ jboss_group }}"
+    home: "{{ eap_library_dest }}"
+    shell: "/bin/bash"
+
 - name: Download EAP Artifact 
   get_url:
     url: "{{ eap_artifact_url }}"
@@ -24,8 +40,8 @@
   sudo: true
   file:
     path: "{{ eap_library_dest }}"
-    owner: fedora
-    group: fedora
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
     state: directory
     mode: "755"
 
@@ -36,9 +52,11 @@
     dest: "{{ eap_library_dest }}"
     creates: jboss-eap-6.4
     copy: no
-    owner: fedora
-    group: fedora
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
 
 - include: java_opts.yml
 
 - include: configuration_files.yml
+
+- include: jboss_service.yml

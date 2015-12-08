@@ -3,7 +3,10 @@
 os1_auth_url: http://os1-public.osop.rhcloud.com:5000/v2.0
 
 ### Image info
-os1_image_id: 34d39f49-8d93-4f92-a9c2-d3549e8d6946 #fedora 23 cloud
+os1_fedora_image_id: 34d39f49-8d93-4f92-a9c2-d3549e8d6946 #fedora 23 cloud
+#os1_rhel_image_id: b199e5b3-dfdc-4302-84d1-a2959c2636c9 #rhel 7.2
+os1_rhel_image_id: 83a57e37-49ea-49b0-b039-8ec07846c0e0 #centos 7.1 1503
+
 os1_security_group: bpms-group,default,docker-publish-ports
 
 ### User specific vars defined below should be added to user-vars.yml file

@@ -26,9 +26,21 @@
     src: "{{ bpms_artifact_dl_dest }}"
     dest: "{{ eap_library_dest }}"
     copy: no
-    owner: fedora
-    group: fedora
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
+
+- name: Remove Kie Server WAR
+  file:
+    state: absent
+    path: "{{ bpms_kie_server_location }}"
+
+- name: Remove Kie Server Deployment Marker
+  file:
+    state: absent
+    path: "{{ bpms_kie_server_location + '.dodeploy' }}"    
 
 - include: java_opts.yml
 
 - include: configuration_files.yml
+
+### TODO - feels like there should be a start service here but the notify happens at the end, which is odd to me

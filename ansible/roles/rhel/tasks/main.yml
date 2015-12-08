@@ -1,0 +1,35 @@
+---
+- name: Subscribe the host
+  redhat_subscription: 
+    state: present 
+    username: "{{ rhn_user }}"
+    password: "{{ rhn_password }}" 
+    autosubscribe: true
+
+#- name: Update Packages
+#  raw: "sudo yum update -y --exclude=libxml2,libxml2-python" 
+
+- name: Install Basic Packages 
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - git
+    - vim
+    - unzip
+
+- name: Add Public Keys to authorized_key
+  authorized_key: 
+    user: "{{ distro_cloud_user }}" 
+    key: "{{ item }}"
+  with_file:
+    - Morgan.pub
+    - Olu.pub
+    - Oridedi.pub
+    - Frank.pub
+    - Joe.pub
+    - Olivier.pub
+    - Stefan.pub
+    - Wes.pub
+    - Raj.pub
+    - Rohan.pub 

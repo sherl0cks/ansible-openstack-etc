@@ -1,12 +1,15 @@
 ---
-#OS1 Private
+### OS1 Private
 os1_auth_url: http://control.os1.phx2.redhat.com:5000/v2.0
 
-# Image info
-os1_image_id: 2695dbd9-e1b1-47a8-9ac3-4e8854aa55aa #fedora 23 cloud
+### Image info
+os1_fedora_image_id: 2695dbd9-e1b1-47a8-9ac3-4e8854aa55aa #fedora 23 cloud
+#os1_rhel_image_id: ea76aacc-ee50-4875-a567-5382f6da54c2 # rhel 7.2
+os1_rhel_image_id: c55d12d3-9e32-4aab-9a1e-cfb3051c5589 # rhel 7.1
+
 os1_security_group: bpms-group
 
-# User specific vars defined below should be added to user-vars.yml file
+### User specific vars defined below should be added to user-vars.yml file
 os1_user: jholmes
 os1_tenant_name: "Consulting Middleware Delivery"
 os1_key_name: jholmes

@@ -1,1 +1,3 @@
 old-bpms-ansible
+*.pub
+i.yml
