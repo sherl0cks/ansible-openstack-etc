@@ -35,7 +35,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 ## Virtual Machines
 
 ### Red Hat
-| Student        	| Design           	| Execute  				|
+| Student        	| Design           	| Execute  			|
 | -------------  	|:-------------:	| :-----:			|
 | Rahman      		| 10.3.9.164 		|  10.3.10.205		|
 | Olu      			| 10.3.12.169	   	|  10.3.12.206  	|
@@ -44,7 +44,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
 
 ### TCS
-| Student        	| Design           	| Execute  				|
+| Student        	| Design           	| Execute  			|
 | -------------  	|:-------------:	| :-----:			|
 | Stefan 			| 209.132.178.252   |  209.132.179.137 	|
 | Frank 			| 209.132.179.138   |  209.132.179.139 	|
@@ -103,5 +103,8 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
   2. Use `sudo systemctl status|start|stop|restart jboss-as-standalone` to manage the jboss service
   3. Add your own user and log in. 
   4. Change the heap settings
-  5. Build a KJar and see it deployed to Nexus
+  5. Using Business Central, build a KJar and see it deployed to Nexus
+2. Other Challenges
+  1. Change the ansible configuration to enable the EAP admin console. Run the playbook and then login to admin console.
+
 
