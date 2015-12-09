@@ -99,9 +99,9 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 ### Day 3
 
 1. Things to know how to do
-⋅1. Find the EAP logs and read them.
-⋅2. Use `sudo systemctl status|start|stop|restart jboss-as-standalone` to manage the jboss service
-⋅3. Add your own user and log in. 
-⋅4. Change the heap settings
-⋅5. Build a KJar and see it deployed to Nexus
+  1. Find the EAP logs and read them.
+  2. Use `sudo systemctl status|start|stop|restart jboss-as-standalone` to manage the jboss service
+  3. Add your own user and log in. 
+  4. Change the heap settings
+  5. Build a KJar and see it deployed to Nexus
 
