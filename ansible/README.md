@@ -20,6 +20,7 @@ These activities are covered by the [Red Hat BPM Suite Getting Started Guide](ht
 - Configuration of persistent, external database for Kie-Server
 - Configuration of Business Central & Kie-Server to use custom settings.xml
 - Configuration of Business Central to use remote git repositories via git hooks
+⋅- We'll do this week 2
 - Install update patches
 - Configuration management tooling to automate all steps
 
@@ -90,7 +91,15 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 1. Read through java, eap and bpms-design roles. On your first pass, only read the `- name: ` tags. These are not required by Ansible, but serve as extremely valuable documentation.
 2. Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
 3. Run the ansible playbook `ansible-playbook bpms-design.yml` and follow the output. Notice how the output prints the `- name` tags as it progresses. Imagine how you could use this output to create documentation for a customer if required.
-4. Check that the install worked by logging in to the app, which will be <your ip>:8080/business-central. User: jboss, pass: bpmsuite1!
+4. Check that the install worked by logging in to the app, which will be your ip:8080/business-central. User: jboss, pass: bpmsuite1!
 5. ssh out to your bpms-design server and explore. 
 6. find the jboss-as logs and read through them
 7. reread the java, eap and bpms-design roles. This time focus on the variables and configuration for each command
+
+### Day 3
+
+1. Things to know how to do
+⋅1. Make you know where the EAP logs are and read them.
+⋅2. Use `systemctl status|start|stop|restart` for the jboss-as service
+⋅3. Build a KJar and see it deployed to Nexus
+
