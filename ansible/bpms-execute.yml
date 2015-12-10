@@ -2,7 +2,14 @@
   remote_user: "{{ distro_cloud_user }}"
   sudo: true
   roles:
+    - postgresql-server
+  tags:
+    - postgresql-server
+
+- hosts: bpms-execute
+  remote_user: "{{ distro_cloud_user }}"
+  sudo: true
+  roles:
     - bpms-execute
-    #- postgresql-eap-datasource
   tags:
     - bpms-execute

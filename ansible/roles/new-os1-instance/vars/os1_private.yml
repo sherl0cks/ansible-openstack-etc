@@ -18,9 +18,9 @@ os1_region_name: OS1Internal
 ### OS1 Private Flavor IDs
 
 ### t2.micro 1 CPU 1 GB RAM
-os1_small_flavor_id: t2.micro
+os1_small_flavor_id: 83098b08-7339-4089-bc07-3f2a14b7a4c1
 ### m1.medium 2 CPU 4 GB RAM
-os1_medium_flavor_id: 83098b08-7339-4089-bc07-3f2a14b7a4c1
+os1_medium_flavor_id: d5fbd66f-2069-42d6-9bde-254bac4617b1
 ### m1.large 4 cpu 8 GB RAM
 os1_large_flavor_id: 900e71fc-70cb-4913-8650-975c89c69ec9
 

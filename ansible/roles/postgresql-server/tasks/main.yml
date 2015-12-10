@@ -1,0 +1,53 @@
+---
+
+- name: Install PostgreSQL Server
+  yum: 
+    name: postgresql-server
+    state: latest
+
+- name: Install Python PostgreSQL Binding
+  yum: 
+    name: python-psycopg2
+    state: latest
+    
+- name: Check If PostgreSQL Has Been Initialized Already
+  stat:
+    path: /var/lib/pgsql/data
+  register: pgsql
+
+- name: Initialize the PostgreSQL Server
+  command: "postgresql-setup initdb"
+  when: "{{ pgsql.stat.exists }} == false"
+
+- name: Start and Enable PostgreSQL Service
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+
+- name: Create the jboss PostgreSQL User
+  become_user: postgres
+  postgresql_user: 
+    name: jboss
+    password: bpmsuite1!
+    state: present
+
+- name: Create the bpms PostgreSQL Database
+  become_user: postgres
+  postgresql_db: 
+    name: bpms
+    owner: jboss 
+    state: present
+
+- name: Copy PostgreSQL Config File
+  copy: 
+    src: pg_hba.conf
+    dest: /var/lib/pgsql/data/pg_hba.conf
+    group: postgres
+    owner: postgres
+    mode: "600"
+
+- name: Restart PostgreSQL Service
+  service:
+    name: postgresql
+    state: restarted
