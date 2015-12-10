@@ -12,7 +12,7 @@
     
 - name: Check If PostgreSQL Has Been Initialized Already
   stat:
-    path: /var/lib/pgsql/data
+    path: /var/lib/pgsql/data/pg_hba.conf
   register: pgsql
 
 - name: Initialize the PostgreSQL Server

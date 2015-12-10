@@ -46,7 +46,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 ### Red Hat
 | Student        	| Design           	| Execute  			|
 | -------------  	|:-------------:	| :-----:			|
-| Rahman      		| 10.3.9.164 		|  10.3.11.174		|
+| Rahman      		| 10.3.9.164 		|  10.3.13.50		|
 | Olu      			| 10.3.12.169	   	|  10.3.10.168  	|
 | Morgan 			| 10.3.10.218     	|  10.3.10.133		|
 
