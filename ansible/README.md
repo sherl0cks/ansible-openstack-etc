@@ -46,9 +46,9 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 ### Red Hat
 | Student        	| Design           	| Execute  			|
 | -------------  	|:-------------:	| :-----:			|
-| Rahman      		| 10.3.9.164 		|  10.3.10.205		|
-| Olu      			| 10.3.12.169	   	|  10.3.12.206  	|
-| Morgan 			| 10.3.10.218     	|  10.3.10.247 		|
+| Rahman      		| 10.3.9.164 		|  10.3.11.174		|
+| Olu      			| 10.3.12.169	   	|  10.3.10.168  	|
+| Morgan 			| 10.3.10.218     	|  10.3.10.133		|
 
 Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
 
