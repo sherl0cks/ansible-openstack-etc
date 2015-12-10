@@ -1,0 +1,37 @@
+---
+# https://access.redhat.com/solutions/34626
+- name: Change Default Random Number Generator
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS  -Djava.security.egd=file:/dev/./urandom"
+
+- name: Create Local Maven Directory
+  sudo: true
+  file:
+    path: /opt/jboss-as/.m2
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
+    state: directory
+    mode: "755"
+
+- name: Set Local Maven Directory
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.guvnor.m2repo.dir=/opt/jboss-as/.m2"
+
+- name: Set Local Maven settings.xml
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dkie.maven.settings.custom=/opt/jboss-as/.m2/settings.xml"
+
+- name: Copy Maven settings.xml
+  sudo: true
+  copy:
+    src: settings.xml
+    dest: /opt/jboss-as/.m2/settings.xml
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
+    mode: "755"
+
+# TODO - get overwrite working for heap size
+

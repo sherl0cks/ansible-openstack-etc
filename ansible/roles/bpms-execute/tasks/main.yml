@@ -1,0 +1,24 @@
+---
+- name: Remove Business Central WAR
+  file:
+    state: absent
+    path: "{{ bpms_business_central_location }}"
+
+- name: Remove Business Central Deployment Marker
+  file:
+    state: absent
+    path: "{{ bpms_business_central_location + '.dodeploy' }}" 
+
+- name: Remove Dashbuilder WAR
+  file:
+    state: absent
+    path: "{{ bpms_dashbuilder_location }}"
+
+- name: Remove Dashbuilder Deployment Marker
+  file:
+    state: absent
+    path: "{{ bpms_dashbuilder_location + '.dodeploy' }}"
+
+- include: configuration_files.yml
+
+- include: java_opts.yml       

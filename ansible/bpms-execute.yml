@@ -1,0 +1,8 @@
+- hosts: bpms-execute
+  remote_user: "{{ distro_cloud_user }}"
+  sudo: true
+  roles:
+    - bpms-execute
+    #- postgresql-eap-datasource
+  tags:
+    - bpms-execute

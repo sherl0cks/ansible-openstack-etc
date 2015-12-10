@@ -1,0 +1,4 @@
+---
+bpms_business_central_location: /opt/jboss-as/jboss-eap-6.4/standalone/deployments/business-central.war
+
+bpms_dashbuilder_location: /opt/jboss-as/jboss-eap-6.4/standalone/deployments/dashbuilder.war

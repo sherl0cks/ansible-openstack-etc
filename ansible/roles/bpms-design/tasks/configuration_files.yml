@@ -1,5 +1,5 @@
 ---
-- name: Copy Default BPM Suite Application User/Role Configuration Files
+- name: Copy Business Central Application User/Role Configuration Files
   sudo: true
   copy:
     src: "{{ item }}"

@@ -1,0 +1,25 @@
+---
+- name: Set Hibernate Persistence Dialect for KIE Server
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.kie.server.persistence.dialect=org.hibernate.dialect.PostgreSQLDialect" 
+  when: bpms_expose_git_daemon      
+
+- name: Set Data Source JNDI Lookup for KIE Server
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.kie.server.persistence.ds=java:jboss/PostgresXADS" 
+  when: bpms_expose_ssh_daemon 
+
+- name: Set Hibernate Transaction Manager for KIE Server
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.kie.server.persistence.tm=org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"
+
+# This is temporary, just to make sure DB stuff is working
+- name: Expose Management Interface to Public Network
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address.management=0.0.0.0"
+
+    

@@ -1,0 +1,22 @@
+---
+###
+# https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Administration_and_Configuration_Guide/index.html#Example_PostgreSQL_XA_Datasource
+###
+- name: Copy Kie Server standalone.xml and Application User/Role Files
+  sudo: true
+  copy:
+    src: "{{ item }}"
+    dest: "{{ eap_standalone_configuration_dir }}"
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
+    mode: "755"
+  with_items:
+    - application-users.properties
+    - application-roles.properties 
+    - standalone.xml
+  notify: 
+    - Reload systemd
+    - Start and Enable jboss-as Service   #this still feels hacky
+
+
+
