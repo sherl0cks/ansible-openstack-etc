@@ -126,4 +126,9 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 6. Perform the exercises in the blog using your KJar. Extend you process definition as need (user task).
 7. Read [part 3](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-3.html) and [part 4](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-4.html) of the KIE-Server series. This is just an FYI.
 
+### Day 5
 
+1. Learn about [the patching process for the BxMS product line](https://access.redhat.com/articles/1455733).
+  1. [Download BPMS 6.1](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&version=6.1.0) and the [6.1 update 4 patch](https://access.redhat.com/jbossnetwork/restricted/softwareDetail.html?softwareId=40541&product=bpm.suite&version=6.1.0&downloadType=patches)
+  2. Apply the patch to BPMS 6.1 update 4 
+2. Always use the latest update version on a new project  
