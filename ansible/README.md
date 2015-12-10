@@ -116,4 +116,14 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 2. Other Challenges
   1. Change the ansible configuration to enable the EAP admin console. Run the playbook and then login to admin console.
 
+### Day 4
+
+1. Read through bpms-execute.yml and all the new roles that it leverages.
+2. Run the play book in your role.
+3. Read the [KIE-Server intro blog from Maciej Swaderski](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-1.html)
+4. Perform the exercises in the blog using the KJar you deployed to Nexus. I recommend [Postman](https://www.getpostman.com/) as a REST client. Also be aware that there is a [RBAC change to the REST API](http://www.schabell.org/2015/11/jboss-bpmsuite-restapi-auth-client-apps.html) - you may need to modify your user config on the KIE-Server.
+5. Read [part 2 of the KIE-Server blog series from Maciej Swaderski](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-2.html)
+6. Perform the exercises in the blog using your KJar. Extend you process definition as need (user task).
+7. Read [part 3](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-3.html) and [part 4](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-4.html) of the KIE-Server series. This is just an FYI.
+
 
