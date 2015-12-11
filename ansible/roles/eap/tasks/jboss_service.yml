@@ -45,5 +45,3 @@
   notify: 
     - Reload systemd
     - Start and Enable jboss-as Service # This feels a little hacky
-
-

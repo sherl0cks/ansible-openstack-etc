@@ -7,8 +7,7 @@
     state: directory
     mode: "775"
 
-
-- name: Download PostgreSQL JDBC Driver 
+- name: Download PostgreSQL JDBC Driver
   get_url:
     url: "{{ postgresql.jdbc.driver.base_url + postgresql.jdbc.driver.name }}"
     dest: "{{ postgresql.jdbc.module.dest + postgresql.jdbc.driver.name }}"
@@ -21,11 +20,12 @@
     path: "{{ postgresql.jdbc.module.dest + postgresql.jdbc.driver.name }}"
     owner: "{{ jboss_user }}"
     group: "{{ jboss_group }}"
-    mode: "664"	
+    mode: "664"
 
 ###
 # https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Administration_and_Configuration_Guide/index.html#Example_PostgreSQL_XA_Datasource
 ###
+
 - name: Copy PostgreSQL module.xml
   sudo: true
   copy:
