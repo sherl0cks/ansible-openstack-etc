@@ -9,7 +9,7 @@ Is to cover activities that Foundational and Experienced practioners of Red Hat 
 SSH with public/private
 
 - https://www.youtube.com/watch?v=87i_OoHUNFo
-- https://www.youtube.com/watch?v=ERp8420ucGs 
+- https://www.youtube.com/watch?v=ERp8420ucGs
 - https://www.youtube.com/watch?v=DbPDraCYju8  (we'll use ansible to do all these steps)
 
 
@@ -33,11 +33,11 @@ These activities are covered by the [Red Hat BPM Suite Getting Started Guide](ht
 - Install update patches
 - Configuration management tooling to automate all steps
 
-All of the above activities will be taught in this course using the Ansible roles and playbooks found in this git repository. 
+All of the above activities will be taught in this course using the Ansible roles and playbooks found in this git repository.
 
 ## What is Ansible and Why Are We Using It?
 
-Read [Ansible's description](http://www.ansible.com/how-ansible-works) on their website. This course is using Ansible because the playbook format is incredibly easy to read. It is the closest thing to English that our industry has today for automating IT activities. Thus, using Ansible for this course allows us to learn how to install and configure infrastructure for Red Hat BPM Suite using an automated tool that reads like documentation. 
+Read [Ansible's description](http://www.ansible.com/how-ansible-works) on their website. This course is using Ansible because the playbook format is incredibly easy to read. It is the closest thing to English that our industry has today for automating IT activities. Thus, using Ansible for this course allows us to learn how to install and configure infrastructure for Red Hat BPM Suite using an automated tool that reads like documentation.
 
 The decision to use Ansible for this course pre-dates [Red Hat's acquisition of Ansible](https://www.redhat.com/en/about/blog/why-red-hat-acquired-ansible), but it has the convenitent side effect of extending supportable options for students to use the material directly on customer engagements.
 
@@ -50,7 +50,7 @@ The decision to use Ansible for this course pre-dates [Red Hat's acquisition of 
 | Olu      			| 10.3.12.169	   	|  10.3.10.168  	|
 | Morgan 			| 10.3.10.218     	|  10.3.10.133		|
 
-Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges. 
+Red Hatters are on a RHEL 7.2 machine which can be access using `ssh cloud-user@< ip >`. The `cloud-user` has passwordless sudo priveleges.
 
 ### TCS
 | Student        	| Design           	| Execute  			|
@@ -70,7 +70,7 @@ Additionally, please ensure the following ports are open on all hosts.
 | 22	 			| ssh           |
 | 80	 			| http          |
 | 443	 			| https			|
-| 8080	 			| EAP http 		|     
+| 8080	 			| EAP http 		|
 | 9990 		  		| EAP admin  	|
 | 9418				| git daemon	|
 | 8001				| ssh daemon	|
@@ -101,7 +101,7 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 2. Edit your `/etc/ansible/hosts/` file. Create a `[bpms-design]` group and a `[bpms-execute]` group and add your corresponding server IP.
 3. Run the ansible playbook `ansible-playbook bpms-design.yml` and follow the output. Notice how the output prints the `- name` tags as it progresses. Imagine how you could use this output to create documentation for a customer if required.
 4. Check that the install worked by logging in to the app, which will be your ip:8080/business-central. User: jboss, pass: bpmsuite1!
-5. ssh out to your bpms-design server and explore. 
+5. ssh out to your bpms-design server and explore.
 6. find the jboss-as logs and read through them
 7. reread the java, eap and bpms-design roles. This time focus on the variables and configuration for each command
 
@@ -110,7 +110,7 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 1. Things to know how to do
   1. Find the EAP logs and read them.
   2. Use `sudo systemctl status|start|stop|restart jboss-as-standalone` to manage the jboss service
-  3. Add your own user and log in. 
+  3. Add your own user and log in.
   4. Change the heap settings
   5. Using Business Central, build a KJar and see it deployed to Nexus
 2. Other Challenges
@@ -121,7 +121,8 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 1. Read through bpms-execute.yml and all the new roles that it leverages.
 2. Run the play book in your role.
 3. Read the [KIE-Server intro blog from Maciej Swaderski](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-1.html)
-4. Perform the exercises in the blog using the KJar you deployed to Nexus. I recommend [Postman](https://www.getpostman.com/) as a REST client. Also be aware that there is a [RBAC change to the REST API](http://www.schabell.org/2015/11/jboss-bpmsuite-restapi-auth-client-apps.html) - you may need to modify your user config on the KIE-Server.
+4. Perform the exercises in the blog using the KJar you deployed to Nexus and the KIE-Server install created from the bpms-execute playbook. I recommend [Postman](https://www.getpostman.com/) as a REST client. Also be aware that there is a [RBAC change to the REST API](http://www.schabell.org/2015/11/jboss-bpmsuite-restapi-auth-client-apps.html) - you may need to modify your user config on the KIE-Server.
+  1. [Link to the docs](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.2/html/User_Guide/chap-The_Realtime_Decision_Server.html#Deploying_the_Realtime_Decision_Server) if you need help connecting.
 5. Read [part 2 of the KIE-Server blog series from Maciej Swaderski](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-2.html)
 6. Perform the exercises in the blog using your KJar. Extend you process definition as need (user task).
 7. Read [part 3](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-3.html) and [part 4](http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-4.html) of the KIE-Server series. This is just an FYI.
@@ -130,5 +131,5 @@ Perficient is on a Centos 7.1 machine which can be access using `ssh centos@< ip
 
 1. Learn about [the patching process for the BxMS product line](https://access.redhat.com/articles/1455733).
   1. [Download BPMS 6.1](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=bpm.suite&version=6.1.0) and the [6.1 update 4 patch](https://access.redhat.com/jbossnetwork/restricted/softwareDetail.html?softwareId=40541&product=bpm.suite&version=6.1.0&downloadType=patches)
-  2. Apply the patch to BPMS 6.1 update 4 
-2. Always use the latest update version on a new project  
+  2. [Apply the patch to BPMS 6.1 update 4](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BRMS/6.2/html-single/Installation_Guide/index.html#chap-Patching_and_Upgrading_Red_Hat_JBoss_BPM_Suite)
+2. Always use the latest update version on a new project

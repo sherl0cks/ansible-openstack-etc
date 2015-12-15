@@ -2,7 +2,6 @@
   remote_user: "{{ distro_cloud_user }}"
   sudo: true
   roles:
-    #- bpms-design
-    - postgresql-eap-datasource
+    - bpms-design
   tags:
     - bpms-design
