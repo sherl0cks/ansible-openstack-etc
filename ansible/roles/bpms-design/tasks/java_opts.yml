@@ -2,14 +2,14 @@
 - name: Expose Git Daemon
   lineinfile:
     dest: "{{ eap_runtime_conf_file }}"
-    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.daemon.host=0.0.0.0" 
-  when: bpms_expose_git_daemon      
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.daemon.host=0.0.0.0"
+  when: bpms_expose_git_daemon
 
 - name: Expose SSH Daemon
   lineinfile:
     dest: "{{ eap_runtime_conf_file }}"
-    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.ssh.host=0.0.0.0" 
-  when: bpms_expose_ssh_daemon 
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.ssh.host=0.0.0.0"
+  when: bpms_expose_ssh_daemon
 
 - name: Set Local Git Directory
   lineinfile:
@@ -19,4 +19,9 @@
 - name: Set Metadata Directory for Lucene Indices
   lineinfile:
     dest: "{{ eap_runtime_conf_file }}"
-    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.metadata.index.dir=/opt/jboss-as/"    
+    line: JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.metadata.index.dir=/opt/jboss-as/"
+
+- name: Set Git Hook Location
+  lineinfile:
+    dest: "{{ eap_runtime_conf_file }}"
+    line: '#JAVA_OPTS="$JAVA_OPTS -org.uberfire.nio.git.hooks=/opt/jboss-as/git-hooks"'

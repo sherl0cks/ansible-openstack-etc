@@ -1,11 +1,11 @@
 ---
-### Set Open Stack Flavor (machine size) 
+### Set Open Stack Flavor (machine size)
 
 - name: Set Small Flavor ID Fact
   set_fact:
     os1_flavor_id: "{{ os1_small_flavor_id }}"
   when: instance_flavor == 'small'
-  
+
 - name: Set Medium Flavor ID Fact
   set_fact:
     os1_flavor_id: "{{ os1_medium_flavor_id }}"
@@ -24,8 +24,8 @@
     os1_image_id: "{{ os1_rhel_image_id }}"
   when: os1_distro_variant == 'rhel'
 
-- name: Set RHEL Image ID Fact
+- name: Set Fedora Image ID Fact
   set_fact:
     os1_image_id: "{{ os1_fedora_image_id }}"
-  when: os1_distro_variant == 'fedora'	
+  when: os1_distro_variant == 'fedora'
 
