@@ -1,8 +1,6 @@
 ---
-instance_name: rhca
+instance_name: bpms-design
 
 instance_flavor: medium
 
-os1_distro_variant: rhel
-
-distro_cloud_user: "cloud-user"
+os1_distro_variant: centos

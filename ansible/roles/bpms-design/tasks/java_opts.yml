@@ -24,4 +24,4 @@
 - name: Set Git Hook Location
   lineinfile:
     dest: "{{ eap_runtime_conf_file }}"
-    line: '#JAVA_OPTS="$JAVA_OPTS -org.uberfire.nio.git.hooks=/opt/jboss-as/git-hooks"'
+    line: '#JAVA_OPTS="$JAVA_OPTS -Dorg.uberfire.nio.git.hooks=/opt/jboss-as/git-hooks"'

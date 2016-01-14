@@ -6,11 +6,11 @@
   yum:
     name: "{{ 'java-' + java_version + '.0-openjdk-devel' }}"
     state: latest
-  when: os1_distro_variant == 'rhel'
-  
+  when: os1_distro_variant == 'rhel' or os1_distro_variant == 'centos'
+
 - name: Install OpenJDK - dnf
   sudo: true
   dnf:
     name: "{{ 'java-' + java_version + '.0-openjdk-devel' }}"
     state: latest
-  when: os1_distro_variant == 'fedora'  
+  when: os1_distro_variant == 'fedora'

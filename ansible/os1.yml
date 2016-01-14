@@ -9,7 +9,7 @@
   roles:
     - new-os1-instance
   tags:
-    - new-os1-instance  
+    - new-os1-instance
 
   vars_prompt:
     - name: "openstack_env"
@@ -23,12 +23,41 @@
       default: fakePassword
 
 #####################################################################################################################
+#  Set Cloud User
+#
+#####################################################################################################################
+
+
+- hosts: 127.0.0.1
+  connection: local
+  tags:
+    - fedora
+    - rhel
+  tasks:
+  - name: Set Fedora Cloud User
+    set_fact:
+      distro_cloud_user: fedora
+    when: os1_distro_variant == 'fedora'
+
+  - name: Set Centos Cloud User
+    set_fact:
+      distro_cloud_user: centos
+    when: os1_distro_variant == 'centos'
+
+  - name: Set RHEL Cloud User
+    set_fact:
+      distro_cloud_user: cloud-user
+    when: os1_distro_variant == 'rhel'
+
+
+#####################################################################################################################
 #  Necessary at the playbook level (not a dependency) because host might not be bootstrapped and can't gather facts.
 #  Gather Fact false can only be set at the playbook level
 #####################################################################################################################
 
+
 - hosts: openstack_instances
-  remote_user: "{{ distro_cloud_user }}"
+  remote_user: "{{ hostvars['127.0.0.1']['distro_cloud_user'] }}"
   sudo: true
   gather_facts: false
   roles:
@@ -38,11 +67,11 @@
 
 
 - hosts: openstack_instances
-  remote_user: "{{ distro_cloud_user }}"
+  remote_user: "{{ hostvars['127.0.0.1']['distro_cloud_user'] }}"
   sudo: true
   gather_facts: false
   roles:
-    - { role: rhel, when: os1_distro_variant == 'rhel' }
+    - { role: rhel, when: os1_distro_variant == 'rhel' or os1_distro_variant == 'centos'  }
   tags:
     - rhel
 
@@ -54,7 +83,7 @@
 
 
 - hosts: openstack_instances
-  remote_user: "{{ distro_cloud_user }}"
+  remote_user: "{{ hostvars['127.0.0.1']['distro_cloud_user'] }}"
   sudo: true
   gather_facts: false
   roles:
@@ -64,7 +93,7 @@
 
 
 - hosts: openstack_instances
-  remote_user: "{{ distro_cloud_user }}"
+  remote_user: "{{ hostvars['127.0.0.1']['distro_cloud_user'] }}"
   gather_facts: false
   sudo: true
   roles:
