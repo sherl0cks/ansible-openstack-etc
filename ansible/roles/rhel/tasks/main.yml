@@ -7,14 +7,14 @@
     autosubscribe: true
   when: os1_distro_variant == 'rhel'
 
-# enable optional repo
 
 - name: Install Basic Packages
   yum:
     name: "{{ item }}"
     state: latest
+    #enablerepo: optional
   with_items:
     - git
     - vim
     - unzip
-    - yum-cron
+    #- yum-cron

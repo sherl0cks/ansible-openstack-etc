@@ -2,6 +2,7 @@
   remote_user: "{{ distro_cloud_user }}"
   sudo: true
   roles:
+    - rhel
     - bpms-design
   tags:
     - bpms-design
