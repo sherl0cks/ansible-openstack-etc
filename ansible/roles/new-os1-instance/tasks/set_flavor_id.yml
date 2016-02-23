@@ -24,10 +24,10 @@
     os1_image_id: "{{ os1_rhel_image_id }}"
   when: os1_distro_variant == 'rhel'
 
-- name: Set Centos Image ID Fact
-  set_fact:
-    os1_image_id: "{{ os1_centos_image_id }}"
-  when: os1_distro_variant == 'centos'
+#- name: Set Centos Image ID Fact
+#  set_fact:
+#    os1_image_id: "{{ os1_centos_image_id }}"
+#  when: os1_distro_variant == 'centos'
 
 - name: Set Fedora Image ID Fact
   set_fact:

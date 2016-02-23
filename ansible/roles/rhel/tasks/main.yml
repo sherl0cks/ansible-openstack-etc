@@ -7,8 +7,7 @@
     autosubscribe: true
   when: os1_distro_variant == 'rhel'
 
-#- name: Update Packages
-#  raw: "sudo yum update -y --exclude=libxml2,libxml2-python"
+# enable optional repo
 
 - name: Install Basic Packages
   yum:
@@ -18,11 +17,4 @@
     - git
     - vim
     - unzip
-
-
-#- name: Add Public Keys to authorized_key
-#  authorized_key:
-#    user: "{{ distro_cloud_user }}"
-#    key: "{{ item }}"
-#  with_file:
-
+    - yum-cron

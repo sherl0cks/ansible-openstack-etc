@@ -3,4 +3,4 @@ instance_name: bpms-design
 
 instance_flavor: medium
 
-os1_distro_variant: centos
+os1_distro_variant: rhel
