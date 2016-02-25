@@ -1,4 +1,15 @@
 ---
+- name: Add DNS Entry to Enable Subscription to RHN
+  lineinfile:
+    dest: /etc/sysconfig/network-scripts/ifcfg-eth0
+    line: "DNS1=209.132.186.218"
+
+- name: Change DNS IP to External IP to Enable Subscription to RHN
+  replace:
+    dest: /etc/resolv.conf
+    regexp: "nameserver 172.18.127.6"
+    replace: "nameserver 209.132.186.218"
+
 - name: Subscribe the host
   redhat_subscription:
     state: present
@@ -12,9 +23,9 @@
   yum:
     name: "{{ item }}"
     state: latest
-    #enablerepo: optional
+  #  enablerepo: rhel-7-server-optional-rpms
   with_items:
     - git
     - vim
     - unzip
-    #- yum-cron
+  # - yum-cron

@@ -1,7 +1,7 @@
 ---
 - name: Create new public OS1 instance
   nova_compute:
-    name: "{{ os1_user }}-{{ instance_name }}-{{ ansible_date_time.date }}--{{ ansible_date_time.time }}"
+    name: "{{ os1_user }}-{{ instance_name }}"#-{{ ansible_date_time.date }}--{{ ansible_date_time.time }}"
     state: present
     key_name: "{{ os1_key_name }}"
     login_username: "{{ os1_user }}"
