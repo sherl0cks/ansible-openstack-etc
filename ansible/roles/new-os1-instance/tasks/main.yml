@@ -6,13 +6,14 @@
 - include: "{{ openstack_env + '.yml' }}"
 
 - name: Add new host into Ansible inventory
-  add_host: 
-    name: "{{ openstack_instance.public_ip }}"  
+  add_host:
+    name: "{{ openstack_instance.public_ip }}"
     groups: openstack_instances
 
 - name: Wait for SSH to be ready
   wait_for:
     port: 22
     host: "{{ openstack_instance.public_ip }}"
+    search_regex: SSH
     timeout: 600
   when: openstack_instance.changed
