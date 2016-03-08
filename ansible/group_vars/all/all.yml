@@ -1,6 +1,6 @@
 ---
-instance_name: test
+instance_name: proxy
 
-instance_flavor: medium
+instance_flavor: small
 
 os1_distro_variant: rhel

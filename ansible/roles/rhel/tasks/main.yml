@@ -8,7 +8,7 @@
 - name: Change DNS IP to External IP to Enable Subscription to RHN
   replace:
     dest: /etc/resolv.conf
-    regexp: "nameserver 172.18.127.6"
+    regexp: "nameserver .{0,50}"
     replace: "nameserver 209.132.186.218"
   #when: hostvars['127.0.0.1']['openstack_env'] == 'public'
 

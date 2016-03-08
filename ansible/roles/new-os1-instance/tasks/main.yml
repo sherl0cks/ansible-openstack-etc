@@ -15,5 +15,5 @@
     port: 22
     host: "{{ openstack_instance.public_ip }}"
     search_regex: SSH
-    timeout: 600
+    timeout: 1200
   when: openstack_instance.changed
