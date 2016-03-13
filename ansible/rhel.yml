@@ -1,0 +1,7 @@
+- hosts: all
+  remote_user: cloud-user
+  sudo: true
+  roles:
+    - rhel
+  tags:
+    - rhel

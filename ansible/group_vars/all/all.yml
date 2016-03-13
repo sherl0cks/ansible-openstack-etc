@@ -1,6 +1,6 @@
 ---
-instance_name: proxy
+instance_name: container-host
 
-instance_flavor: small
+instance_flavor: xl
 
 os1_distro_variant: rhel

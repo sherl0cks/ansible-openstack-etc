@@ -16,6 +16,10 @@
     os1_flavor_id: "{{ os1_large_flavor_id }}"
   when: instance_flavor == 'large'
 
+- name: Set Large Flavor ID Fact
+  set_fact:
+    os1_flavor_id: "{{ os1_xl_flavor_id }}"
+  when: instance_flavor == 'xl'
 
 ### Set Image ID (linux distro)
 

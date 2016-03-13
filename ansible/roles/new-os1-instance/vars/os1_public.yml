@@ -26,6 +26,8 @@ os1_small_flavor_id: t2.micro
 os1_medium_flavor_id: 11f7d668-2fed-44b4-bfdc-772dbca9f585
 ### m1.large 4 cpu 8 GB RAM
 os1_large_flavor_id: 7fa31c45-c37a-4b8f-9243-9286af11b273
+### m3.xlarge 4 cpu 16 GB RAM
+os1_xl_flavor_id: m3.xlarge
 
 #rhn_user:
 #rhn_password:
