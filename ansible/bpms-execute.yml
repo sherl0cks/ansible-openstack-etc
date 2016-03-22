@@ -1,12 +1,13 @@
-- hosts: bpms-execute
+- hosts: bpms-execute-hosts
   remote_user: "{{ distro_cloud_user }}"
   sudo: true
   roles:
+    - rhel
     - postgresql-server
   tags:
     - postgresql-server
 
-- hosts: bpms-execute
+- hosts: bpms-execute-hosts
   remote_user: "{{ distro_cloud_user }}"
   sudo: true
   roles:

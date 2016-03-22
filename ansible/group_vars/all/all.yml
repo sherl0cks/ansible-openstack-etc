@@ -4,3 +4,9 @@ instance_name: bpms-design
 instance_flavor: medium
 
 os1_distro_variant: rhel
+
+distro_cloud_user: cloud-user
+
+rhn_user: jholmes@redhat.com
+
+rhn_password: add your pass here
