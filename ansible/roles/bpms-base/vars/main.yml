@@ -2,8 +2,8 @@
 # Installs a BPM Suite via Red Hat internal downloads
 # Update these to reflect your organizations artifact repos
 
-bpms_artifact_repo: http://justinholmes.xyz/files
-bpms_artifact_name: jboss-bpmsuite-6.2.2.GA-redhat-1-deployable-eap6.x.zip
+bpms_artifact_repo: http://files.justinholmes.co
+bpms_artifact_name: jboss-bpmsuite-6.3.0.DR2-deployable-eap6.x.zip
 #jboss-bpmsuite-6.2.1.GA-redhat-2-deployable-eap6.x.zip
 
 bpms_kie_server_location: /opt/jboss-as/jboss-eap-6.4/standalone/deployments/kie-server.war

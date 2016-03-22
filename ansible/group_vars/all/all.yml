@@ -1,6 +1,6 @@
 ---
-instance_name: container-host
+instance_name: bpms-design
 
-instance_flavor: xl
+instance_flavor: medium
 
 os1_distro_variant: rhel
