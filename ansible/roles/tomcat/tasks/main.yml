@@ -1,0 +1,47 @@
+---
+# Installs a BPM
+# Corresponds to docker layer https://github.com/sherl0cks/docker-bpms
+
+- name: Set Tomcat Facts
+  set_fact:
+    tomcat_artifact_url: "{{ tomcat_artifact_url}}"
+    tomcat_artifact_dl_dest: "{{ '/tmp/' + tomcat_artifact_name }}"
+
+- name: Debug Tomcat Artifact URL
+  debug:
+    msg: "{{ tomcat_artifact_url }}"
+
+- name: Debug Tomcat Artifact Download Destination
+  debug:
+    msg: "{{ tomcat_artifact_dl_dest }}"    
+
+- name: Download Tomcat Artifact
+  get_url:
+    url: "{{ tomcat_artifact_url }}"
+    dest: "{{ tomcat_artifact_dl_dest }}"
+
+- name: Create Tomcat Group
+  group:
+    name: "{{ tomcat_group }}"
+    system: yes
+    state: present
+    gid: "420"
+
+- name: Create Tomcat User
+  user:
+    name: "{{ tomcat_user }}"
+    comment: "tomcat"
+    uid: "419"
+    group: "{{ tomcat_group }}"
+    home: "{{ tomcat_destination }}"
+    shell: "/bin/bash"
+# This should overlay the BPM download over EAP, intentionally overwriting some files in the process        
+- name: Unzip Tomcat
+  unarchive: 
+    src: "{{ tomcat_artifact_dl_dest }}"
+    dest: "{{ tomcat_destination }}"
+    copy: no
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+
+### TODO - feels like there should be a start service here but the notify happens at the end, which is odd to me

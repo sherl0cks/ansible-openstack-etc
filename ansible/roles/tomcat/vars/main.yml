@@ -1,0 +1,13 @@
+---
+# Installs Tomcat 9
+
+
+tomcat_artifact_url: http://apache.cs.utah.edu/tomcat/tomcat-9/v9.0.0.M1/bin/apache-tomcat-9.0.0.M1.zip
+
+tomcat_artifact_name: apache-tomcat-9.0.0.M1
+tomcat_destination: /opt/Servers/tomcat/
+
+tomcat_user: tomcat
+tomcat_group: tomcat
+
+
